@@ -11,3 +11,10 @@ git push -u origin master
 git remote add origin https://github.com/rkumarmore/php-practice.git
 git branch -M master
 git push -u origin master
+
+git init
+git remote add origin https://github.com/rkumarmore/php-practice.git
+git add .
+git commit -m "first commit"
+git remote set-url origin https://github.com/rkumarmore/php-practice.git
+git push -u origin master
