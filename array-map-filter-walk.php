@@ -10,12 +10,57 @@ Passing Arbitrary Data to Callback:
 array_walk can receive an extra arbitrary parameter to pass to the callback. This mostly irrelevant since PHP 5.3 (when anonymous functions were introduced).
 Length of Returned Array:
 The resulting array of array_map has the same length as that of the largest input array; array_walk does not return an array but at the same time it cannot alter the number of elements of original array; array_filter picks only a subset of the elements of the array according to a filtering function. It does preserve the keys.
-<?php 
+<pre>
+array_walk($array, 'walk', 'test')
+- Does not change the value (Value will be changed if passed by reference)
+- Returns TRUE
+- Key access
+- Can receive an extra arbitrary parameter to pass to the callback
+<code>
+
 function walk(&$value, $key, $param)
 {
 	// echo 'Walk - ';
 	// echo 'Key is: '.$key.' Value is: '.$value.' Parameter is:'.$param
 	//Value can be modified
+	$value+=$value;
+}
+</code>
+array_map ('map', $array)
+- Changes value
+- No Key access
+- Returns array
+
+<code>
+
+function map($value)
+{
+	// echo 'Map - '; 	echo 'Value is: '.$value;
+	return $value*$value;
+
+}
+<code>
+function filter($value)
+{
+	return ($value & 1);
+}
+$array = [1,2,3,4];
+
+print_r(array_map('map', $array));
+print_r(array_filter($array, 'filter'));
+
+if(print_r(array_walk($array, 'walk', 'test')))
+	print_r($array);
+else
+	die('Walk failed');
+
+</code></pre>
+<?php 
+function walk($value, $key, $param)
+{
+	// echo 'Walk - ';
+	echo 'Key is: '.$key.' Value is: '.$value.' Parameter is:'.$param."<br>";
+	//Value can be modified if reference is passed
 	$value+=$value;
 }
 

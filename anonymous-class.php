@@ -12,7 +12,7 @@ class Application
 	private $logger;
 
     public function getLogger(): Logger{
-    	return $this->logger;;
+    	return $this->logger;
     }
 
     public function setLogger(Logger $logger)

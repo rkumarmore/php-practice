@@ -1,11 +1,9 @@
 <?php 
 interface attributes {
 	public function area(array $params, $units);
+  // public function volume(array $params, $units);
 }
 
-/**
- * Rectangle
- */
 class calculator
 {
 	private $attributes;
@@ -13,7 +11,7 @@ class calculator
    		return $this->attributes;
    }
 
-   function setAttribute($attributes)
+   function setAttribute(attributes $attributes)
    {
    		$this->attributes = $attributes;
    }
@@ -36,9 +34,9 @@ $rect->setAttribute(new class implements attributes
 
 
 
-$triangle = new  calc();
+$triangle = new  calculator();
 
-$triangle->setAttribute(new class implements calculator
+$triangle->setAttribute(new class implements attributes
 {
     public function area(array $params, $units)
     {
