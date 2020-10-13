@@ -9,9 +9,17 @@
 <body>
 	<ul>
 		<li>
-			$x = 3 & 1;
+			PHP will compare alpha strings using the greater than and less than comparison operators based upon alphabetical order. <br>
+			$a= 'red'; $b='blue'; echo $a>$b <br>
+			<?php 
+			$a= 'z'; $b='yasdfasdfasdfz'; 
+			echo $a>$b;
+			?>
+		</li>
+		<li>
+			$x = 4 & 1;
 
-			<?php $x = 3 & 1;
+			<?php $x = 4 & 1;
 
 
 			var_dump($x);
@@ -27,6 +35,9 @@
 	var_dump($x)
 	 ?></li>
 	 <li>
+	 	$a = "PHP";
+	 	$a = $a+1; 
+	 	var_dump($a);
 	 	<?php 
 	 	$a = "PHP";
 	 	$a = $a+1; 

@@ -57,31 +57,29 @@ else
 </code></pre>
 <?php 
 function walk($value, $key, $param)
-{
-	// echo 'Walk - ';
+{	// echo 'Walk - ';
 	echo 'Key is: '.$key.' Value is: '.$value.' Parameter is:'.$param."<br>";
 	//Value can be modified if reference is passed
-	$value+=$value;
+	return $value+=$value;
 }
 
 function map($value)
-{
-	// echo 'Map - '; 	echo 'Value is: '.$value;
+{	// echo 'Map - '; 	echo 'Value is: '.$value;
 	return $value*$value;
-
 }
 
 function filter($value)
 {
 	return ($value & 1);
 }
-$array = [1,2,3,4];
+$array = ['one'=>1,'two'=>2,'three'=>3,'four'=>4];
 
-echo '<pre>';
+echo '<pre>Map<br>';
 print_r(array_map('map', $array));
+echo '<pre>Filter<br>';
 print_r(array_filter($array, 'filter'));
-
-if(print_r(array_walk($array, 'walk', 'test')))
+echo '<pre>Walk<br>';
+if(print_r(array_walk($array, 'walk', 'test')))	
 	print_r($array);
 else
 	die('Walk failed');

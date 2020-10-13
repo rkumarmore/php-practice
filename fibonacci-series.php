@@ -5,8 +5,8 @@
 $limit = 10;
 $n1 = 0;
 $n2 = 1;
- $output = $n1.','.$n2.',';
-while ($limit) {
+$output = $n1.','.$n2.',';
+while ($limit){
     $n3 = $n1+$n2;
     $n1 = $n2;
     $n2=$n3;
@@ -39,6 +39,7 @@ function myseries($n1,$n2, $limit)
     }    
     return $n3.','.myseries($n1, $n2, $limit-1);
 }
+
 ?>  
 
 <?php  
