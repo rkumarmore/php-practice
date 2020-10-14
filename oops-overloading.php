@@ -13,6 +13,7 @@ After creating the object for a class, we can access a set of entities that are 
 Such entities are said to be overloaded properties or methods, and the process is called as overloading.
 For working with these overloaded properties or functions, PHP magic methods are used.
 Most of the magic methods will be triggered in object context except __callStatic() method which is used in a static context.
+
 Types of Overloading in PHP: There are two types of overloading in PHP.
 
 Property Overloading

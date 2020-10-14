@@ -3,9 +3,26 @@
 interface Animal {
   public function makeSound();
 }
+/**
+ * 
+ */
+class test
+{ 
+  private $name;
+  
+  function __construct($name)
+  {
+    $this->name = $name;
+  }
+    
+  public function get_name()
+  {
+      return $this->name;
+  }
+}
 
 // Class definitions
-class Cat implements Animal {
+class Cat extends test implements Animal {
   public function makeSound() {
     echo " Meow ";
   }
@@ -24,7 +41,7 @@ class Mouse implements Animal {
 }
 
 // Create a list of animals
-$cat = new Cat();
+$cat = new Cat('tiger');
 $dog = new Dog();
 $mouse = new Mouse();
 $animals = array($cat, $dog, $mouse);
@@ -33,5 +50,7 @@ $animals = array($cat, $dog, $mouse);
 foreach($animals as $animal) {
   $animal->makeSound();
 }
+
+echo '<pre>'; print_r($cat->get_name()); exit();
 ?>
 Example Explain
