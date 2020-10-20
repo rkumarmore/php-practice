@@ -16,6 +16,16 @@ git remote add origin https://github.com/rkumarmore/php-practice.git
 git push -u origin master
                 
 …or push an existing repository from the command line
+
+# from local machine
+git init
 git remote add origin https://github.com/rkumarmore/php-practice.git
+git add .
+git commit -m "first commit"
 git branch -M master
-git push -u origin master
+git push --set-upstream origin main
+
+#if gitignore is not working
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
