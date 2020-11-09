@@ -9,6 +9,26 @@
 <body>
 	<ul>
 		<li>
+			$a= 25;
+echo $a; echo '<br>';
+echo $a++;echo '<br>';
+echo $a++ + $a++;echo '<br>';
+echo $a++;echo '<br>';
+echo $a--;echo '<br>';
+echo $a;echo '<br>';
+
+<?php 
+$a= 25;
+echo $a; echo '<br>';
+echo $a++;echo '<br>';
+echo $a++ + $a++;echo '<br>';
+echo $a++;echo '<br>';
+echo $a--;echo '<br>';
+echo $a;echo '<br>';
+
+ ?>
+		</li>
+		<li>
 			PHP will compare alpha strings using the greater than and less than comparison operators based upon alphabetical order. <br>
 			$a= 'red'; $b='blue'; echo $a>$b <br>
 			<?php 

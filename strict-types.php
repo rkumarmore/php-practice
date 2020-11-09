@@ -23,7 +23,7 @@ string
 interfaces
 array
 callable</p>
-<code>/*Scalara Type declarations */
+<code>/*Scalar Type declarations */
 function sum(int ...$ints) {
   return array_sum($ints);
 }

@@ -1,0 +1,1 @@
+SELECT `products`.`id`, `products`.`code`,`products`.`name`,MAX(`skus`.`price_inr`) FROM `products` JOIN `skus` ON `products`.`id` = `skus`.`product_id` WHERE (`skus`.`stock`>0 AND `skus`.`cat_id` IN (19,20,6,24,18)) GROUP BY `skus`.`product_id` ORDER BY `skus`.`price_inr` DESC

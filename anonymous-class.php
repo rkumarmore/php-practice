@@ -23,11 +23,7 @@ class Application
 
 $app = new Application();
 
-$app->setLogger(new /**
- * Anonymious class
- */
-class implements Logger
-{
+$app->setLogger(new class implements Logger {
     public function log(string $msg)
     {
     	print($msg);
