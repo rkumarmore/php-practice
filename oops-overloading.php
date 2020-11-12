@@ -15,17 +15,16 @@ For working with these overloaded properties or functions, PHP magic methods are
 Most of the magic methods will be triggered in object context except __callStatic() method which is used in a static context.
 
 Types of Overloading in PHP: There are two types of overloading in PHP.
-
 Property Overloading
 Method Overloading
+
 Property Overloading: PHP property overloading is used to create dynamic properties in the object context. For creating these properties no separate line of code is needed. A property associated with a class instance, and if it is not declared within the scope of the class, it is considered as overloaded property.
+
 Following operations are performed with overloaded properties in PHP.
-
-
-
 Setting and getting overloaded properties.
 Evaluating overloaded properties setting.
 Undo such properties setting.
+
 Before performing the operations, we should define appropriate magic methods. which are,
 
 __set(): triggered while initializing overloaded properties.
@@ -42,7 +41,7 @@ brightness_4
 <?php 
   
 //  
-class GFG { 
+class GFG1 { 
       
     // Location of overloading data 
     private $data = array(); 
@@ -91,39 +90,30 @@ class GFG {
 } 
   
 // Create an object 
-$obj = new GFG; 
-  
+$obj = new GFG1; 
+echo '<br>94';
 // Set value 1 to the object variable 
 $obj->a = 1; 
-echo $obj->a . "\n"; 
+echo $obj->a . "\n"; echo '<br>';
   
 // Use isset function to check 
 // 'a' is set or not 
-var_dump(isset($obj->a)); 
+var_dump(isset($obj->a)); echo '<br>';
   
 // Unset 'a' 
-unset($obj->a); 
+unset($obj->a); echo '<br>';
   
-var_dump(isset($obj->a)); 
+var_dump(isset($obj->a)); echo '<br>';
   
-echo $obj->declared . "\n\n"; 
+echo $obj->declared . "\n\n"; echo '<br>';
   
-echo "Private property are visible inside the class "; 
+echo "Private property are visible inside the class "; echo '<br>';
 echo $obj->getHidden() . "\n\n"; 
   
-echo "Private property are not visible outside of class\n"; 
+echo "Private property are not visible outside of class\n"; echo '<br>';
 echo $obj->hidden . "\n"; 
   
 ?> 
-Output:
-Setting 'a' to '1'
-Getting 'a: 1
-Is 'a' set?
-bool(true)
-Unsetting 'a'
-Is 'a' set?
-bool(false)
-1
 
 Private property are visible inside the class 2
 
@@ -148,14 +138,14 @@ class GFG {
     public function __call($name, $arguments) { 
           
         echo "Calling object method '$name' "
-            . implode(', ', $arguments). "\n"; 
+            . implode(', ', $arguments). "\n"; echo '<br>';
     } 
   
       
     public static function __callStatic($name, $arguments) { 
           
         echo "Calling static method '$name' "
-            . implode(', ', $arguments). "\n"; 
+            . implode(', ', $arguments). "\n"; echo '<br>';
     } 
 } 
   

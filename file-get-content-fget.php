@@ -16,7 +16,6 @@ $file = file_get_contents('./people.txt', FILE_USE_INCLUDE_PATH);
 ?>
 
 
-
 file() - Reads entire file into an array
 fgets() - Gets line from file pointer
 fread() - Binary-safe file read

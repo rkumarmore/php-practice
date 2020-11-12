@@ -10,12 +10,12 @@
 	<ul>
 		<li>
 			$a= 25;
-echo $a; echo '<br>';
-echo $a++;echo '<br>';
-echo $a++ + $a++;echo '<br>';
-echo $a++;echo '<br>';
-echo $a--;echo '<br>';
-echo $a;echo '<br>';
+echo $a; echo '<br>'; 25
+echo $a++;echo '<br>';25
+echo $a++ + $a++;echo '<br>';53
+echo $a++;echo '<br>';28
+echo $a--;echo '<br>';29
+echo $a;echo '<br>';28
 
 <?php 
 $a= 25;

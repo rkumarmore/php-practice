@@ -1,12 +1,12 @@
 <?php
 // Interface definition
-interface Animal {
+interface sounds {
   public function makeSound();
 }
 /**
  * 
  */
-class test
+class Animal
 { 
   private $name;
   
@@ -22,19 +22,19 @@ class test
 }
 
 // Class definitions
-class Cat extends test implements Animal {
+class Cat extends Animal implements sounds {
   public function makeSound() {
     echo " Meow ";
   }
 }
 
-class Dog implements Animal {
+class Car implements sounds {
   public function makeSound() {
-    echo " Bark ";
+    echo " ZZZZZZ... ";
   }
 }
 
-class Mouse implements Animal {
+class Mouse extends Animal {
   public function makeSound() {
     echo " Squeak ";
   }

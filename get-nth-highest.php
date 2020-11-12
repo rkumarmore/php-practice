@@ -6,7 +6,7 @@ include 'db.php';
 // $sql = 'SELECT salary FROM (SELECT salary FROM employees ORDER BY salary DESC LIMIT 2) AS Emp ORDER BY salary LIMIT 1';
 
 $n = 2;
-$sql= "SELECT salary FROM employees e WHERE $n=(SELECT COUNT( DISTINCT salary) FROM employees t WHERE e.salary<= t.salary)";
+$sql= "SELECT salary FROM employees a WHERE $n=(SELECT COUNT( DISTINCT salary) FROM employees b WHERE a.salary<= b.salary)";
 
 
 

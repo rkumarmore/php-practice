@@ -40,6 +40,7 @@ function returnIntValue(int $value): int {
 </html>
 <?php 
 /*Scalara Type declarations */
+// declare(strict_types=1);
 function sum(int ...$ints) {
   return array_sum($ints);
 }
