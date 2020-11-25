@@ -13,7 +13,7 @@ while ($limit){
     $output.=$n3;
 
     if ($limit !== 1) {
-         $output.=',';
+        $output.=',';
     }
     $limit--;
 }

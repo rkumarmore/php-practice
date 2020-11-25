@@ -1,8 +1,5 @@
 <?php 
-$a= 25;
-echo $a; echo '<br>';
-echo $a++;echo '<br>';
-echo $a++ + $a++;echo '<br>';
-echo $a++;echo '<br>';
-echo $a--;echo '<br>';
-echo $a;echo '<br>';
+function addNumbers(int $a, int $b) {
+  return $a + $b;
+}
+echo addNumbers(5, "5 days");

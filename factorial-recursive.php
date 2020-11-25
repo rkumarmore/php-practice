@@ -1,12 +1,12 @@
 <?php 
-$num = 4;
+$num = 2;
 print(factorial($num));
 
 function factorial(int $num) : int
 {
 	// echo $num."<br>";
-	if ($num == 1) {
-		return $num;
+	if ($num <= 1) {
+		return 1;
 	}else{
 		return $num*factorial($num-1);
 	}

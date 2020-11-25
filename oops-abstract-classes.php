@@ -1,5 +1,8 @@
 <?php
 // Parent class
+interface {
+  
+}
 abstract class Car {
   public $name;
   public function __construct($name) {

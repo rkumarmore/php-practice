@@ -1,34 +1,56 @@
+-----------------------------------------
+Clone repository
+-----------------------------------------
+git clone https://github.com/rkumarmore/python-practice.git
+
+-----------------------------------------
+New project from local directory
+-----------------------------------------
+
 git init
 git remote add origin https://github.com/rkumarmore/python-practice.git
-git pull origin master 
-or 
+git add .
+git commit -m 'initial setup'
 git push origin master
 
+-----------------------------------------
+Create new branch from local
+-----------------------------------------
 
+git branch 'test'
+git checkout
+git push --set-upstream origin test
 
+Create the branch on your local machine and switch in this branch :
 
-…or create a new repository on the command line
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M master
-git remote add origin https://github.com/rkumarmore/php-practice.git
-git push -u origin master
-                
-…or push an existing repository from the command line
+$ git checkout -b [name_of_your_new_branch]
 
-# from local machine
-git init
-git remote add origin https://github.com/rkumarmore/php-practice.git
-git add .
-git commit -m "first commit"
-git branch -M master
-git push --set-upstream origin main
-
+---------------------------------
 #if gitignore is not working
+---------------------------------
 git rm -r --cached .
 git add .
 git commit -m "fixed untracked files"
+
+-----------------------------------------
+Delete branch from local
+-----------------------------------------
+Delete a branch on your local filesystem :
+
+git branch -d [name_of_your_new_branch]
+
+To force the deletion of local branch on your filesystem :
+
+git branch -D [name_of_your_new_branch]
+
+Delete the branch on github :
+
+git push origin :[name_of_your_new_branch]
+
+-----------------------------------------
+Create new branch from local
+-----------------------------------------
+
 
 Before creating a new branch, pull the changes from upstream. Your master needs to be up to date.
 
@@ -53,6 +75,7 @@ Which will show :
 * approval_messages
   master
   master_clean
+
 Add a new remote for your branch :
 
 $ git remote add [name_of_your_remote] [name_of_your_new_branch]

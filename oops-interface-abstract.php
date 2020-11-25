@@ -1,4 +1,4 @@
-Interface are similar to abstract classes. The difference between interfaces and abstract classes are:
+Interfaces are similar to abstract classes. The difference between interfaces and abstract classes are:
 
 Interfaces cannot have properties, while abstract classes can
 All interface methods must be public while abstract class methods may also be private or protected
