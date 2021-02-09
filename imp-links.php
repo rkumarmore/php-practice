@@ -10,6 +10,7 @@
 	<ul>
 		<li><a href="https://github.com/barryvdh/laravel-debugbar">laravel-debugbar</a></li>
 		<li><a href="https://github.com/codecourse/posty-traversy-media">laravel-Posty-tutorial-Code</a></li>
+		<li><a href="https://mailtrap.io/">Testing mail server</a></li>
 		
 	</ul>
 </body>
