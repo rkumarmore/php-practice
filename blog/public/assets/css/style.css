@@ -34862,4 +34862,10 @@ table.focus-on tfoot tr.focused td {
   }
 }
 
+input, textarea, select{
+  border: 2px solid #cddef7 !important;
+}
+input:focus, textarea:focus, select:focus{
+  border: 2px solid #4d83e0 !important;
+}
 /*# sourceMappingURL=style.css.map */

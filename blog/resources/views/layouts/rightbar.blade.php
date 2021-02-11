@@ -141,10 +141,22 @@
                                                 </li>
                                                 <li class="media dropdown-item">
                                                     <a href="#" class="profile-icon"><img src="assets/images/svg-icon/email.svg" class="img-fluid" alt="email">Email</a>
-                                                </li>                                                        
+                                                </li>  
+                                                @auth
                                                 <li class="media dropdown-item">
-                                                    <a href="#" class="profile-icon"><img src="assets/images/svg-icon/logout.svg" class="img-fluid" alt="logout">Logout</a>
+                                                    <form action="{{route('logout')}}" method="post">
+                                                        @csrf
+                                                        <input type="submit" value='Logout'>
+                                                    </form>
+                                                    <!-- <a href="#" class="profile-icon"><img src="assets/images/svg-icon/logout.svg" class="img-fluid" alt="logout">Logout</a> -->
                                                 </li>
+                                                @endauth  
+                                                @guest 
+                                                <li class="media dropdown-item">
+                                                <a href="{{route('login')}}" class="profile-icon">Login</a>
+                                                </li>
+                                                @endguest                                                    
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -161,7 +173,7 @@
     <!-- End Topbar -->
     <!-- Start Breadcrumbbar -->                    
     <div class="breadcrumbbar">
-        <div class="row align-items-center">
+        <!-- <div class="row align-items-center">
             <div class="col-md-8 col-lg-8">
                 <h4 class="page-title">@yield('title')</h4>
                 <div class="breadcrumb-list">
@@ -176,7 +188,7 @@
                     <button class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>Actions</button>
                 </div>                        
             </div>
-        </div>          
+        </div>           -->
     </div>
     <!-- End Breadcrumbbar -->
     @yield('rightbar-content')

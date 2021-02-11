@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,10 +16,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::post('/post', [PostController::class, 'store'])->name('post');
+Route::post('/post/{post}/like', [PostLikeController::class, 'like'])->name('post.like');
+Route::post('/post/{post}/unlike', [PostLikeController::class, 'unlike'])->name('post.unlike');
+Route::get('/', [PostController::class, 'index'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 Route::get('/advanced-ui-kits-image-crop', function () {
     return view('advanced-ui-kits-image-crop');
 });
