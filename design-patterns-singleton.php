@@ -1,6 +1,8 @@
-When designing web applications, it often makes sense conceptually and architecturally to allow access to one and only one instance of a particular class. The singleton pattern enables us to do this.
+When designing web applications, it often makes sense conceptually and architecturally to allow access to one and only one instance of a particular class.
+The singleton pattern enables us to do this.
 
-The code above implements the singleton pattern using a static variable and the static creation method getInstance(). Note the following:
+The code above implements the singleton pattern using a static variable and the static creation method getInstance().
+Note the following:
 
 The constructor __construct() is declared as protected to prevent creating a new instance outside of the class via the new operator.
 The magic method __clone() is declared as private to prevent cloning of an instance of the class via the clone operator.
@@ -10,61 +12,67 @@ The singleton pattern is useful when we need to make sure we only have a single 
 
 You should be wary when using the singleton pattern, as by its very nature it introduces global state into your application, reducing testability. In most cases, dependency injection can (and should) be used in place of a singleton class. Using dependency injection means that we do not introduce unnecessary coupling into the design of our application, as the object using the shared or global resource requires no knowledge of a concretely defined class.
 
-   class Singleton {
-      public static function getInstance() {
-         static $instance = null;
-         
-         if (null === $instance) {
-            $instance = new static();
-         }
-         return $instance;
-      }
-      protected function __construct() {
-      }
-      
-      private function __clone() {
-      }
-      
-      private function __wakeup() {
-      }
-   }
-   
-   class SingletonChild extends Singleton {
-   }
-   
-   $obj = Singleton::getInstance();
-   var_dump($obj === Singleton::getInstance()); //true
-   
-   $anotherObj = SingletonChild::getInstance();
-   var_dump($anotherObj === Singleton::getInstance()); //False
-   var_dump($anotherObj === SingletonChild::getInstance());  //true
+class Singleton {
+public static function getInstance() {
+static $instance = null;
+
+if (null === $instance) {
+$instance = new static();
+}
+return $instance;
+}
+protected function __construct() {
+}
+
+private function __clone() {
+}
+
+private function __wakeup() {
+}
+}
+
+class SingletonChild extends Singleton {
+}
+
+$obj = Singleton::getInstance();
+var_dump($obj === Singleton::getInstance()); //true
+
+$anotherObj = SingletonChild::getInstance();
+var_dump($anotherObj === Singleton::getInstance()); //False
+var_dump($anotherObj === SingletonChild::getInstance()); //true
 <?php
-   class Singleton {
-      public static function getInstance() {
-         static $instance = null;
-         
-         if (null === $instance) {
-            $instance = new static();
-         }
-         return $instance;
+class Singleton
+{
+   public static function getInstance()
+   {
+      static $instance = null;
+
+      if (null === $instance) {
+         $instance = new static();
       }
-      protected function __construct() {
-      }
-      
-      private function __clone() {
-      }
-      
-      private function __wakeup() {
-      }
+      return $instance;
    }
-   
-   class SingletonChild extends Singleton {
+   protected function __construct()
+   {
    }
-   
-   $obj = Singleton::getInstance();
-   var_dump($obj === Singleton::getInstance()); //true
-   
-   $anotherObj = SingletonChild::getInstance();
-   var_dump($anotherObj === Singleton::getInstance()); //False
-   var_dump($anotherObj === SingletonChild::getInstance());  //true
+
+   private function __clone()
+   {
+   }
+
+   private function __wakeup()
+   {
+   }
+}
+
+class SingletonChild extends Singleton
+{
+}
+
+$obj = Singleton::getInstance();
+var_dump($obj === Singleton::getInstance()); //true
+
+$anotherObj = SingletonChild::getInstance();
+var_dump($anotherObj === Singleton::getInstance()); //False
+var_dump($anotherObj === SingletonChild::getInstance());  //true
 ?>

@@ -1,5 +1,5 @@
 <?php 
-$path = 'F:';
+$path = 'E:\Phone';
 $bytestotal = 0;
 $path = realpath($path);
 if($path!==false && $path!='' && file_exists($path)){

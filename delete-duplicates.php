@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'db.php';
 
@@ -17,10 +17,10 @@ ALTER TABLE temp ADD UNIQUE INDEX (name,email,salary);
 INSERT INTO temp(name,email,salary) SELECT DISTINCT name,email,salary FROM employees;  
 TRUNCATE TABLE employees;
 INSERT INTO employees SELECT * FROM temp; 
-DROP TABLE temp;*/ 
+DROP TABLE temp;*/
 
-if($conn->query($sql)){
+if ($conn->query($sql)) {
 	die('Successfully deleted');
-}else{
+} else {
 	die('Failed');
 }

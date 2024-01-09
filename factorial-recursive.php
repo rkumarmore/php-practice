@@ -1,5 +1,5 @@
 <?php 
-$num = 2;
+$num = 5;
 print(factorial($num));
 
 function factorial(int $num) : int

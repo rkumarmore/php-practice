@@ -1,3 +1,11 @@
+<pre>
+- Class or method is defined with the abstract keyword
+- An abstract method is a method that is declared, but not implemented in the code.
+- Parent class has a named method, but need its child class(es) to fill out the tasks
+- Abstract class should contain at least one abstract method.
+
+
+
 <?php
 // Parent class
 interface {

@@ -1,0 +1,16 @@
+{
+    "name": "rajkumar/design-patterns",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rajkumar",
+            "email": "rkumar.more@gmail.com"
+        }
+    ],
+    "require": {}
+}

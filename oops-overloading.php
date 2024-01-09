@@ -4,6 +4,9 @@ What is function overloading?
 Function overloading is the ability to create multiple functions of the same name with different implementations.
 
 Function overloading in PHP?
+
+Overloading in PHP provides means to dynamically create properties and methods. These dynamic entities are processed via magic methods one can establish in a class for various action types.
+
 Function overloading in PHP is used to dynamically create properties and methods. These dynamic entities are processed by magic methods which can be used in a class for various action types. Function overloading contains same function name and that function preforms different task according to number of arguments. For example, find the area of certain shapes where radius are given then it should return area of circle if height and width are given then it should give area of rectangle and others. Like other OOP languages function overloading can not be done by native approach. In PHP function overloading is done with the help of magic function __call(). This function takes function name and arguments.
 
 Property and Rules of overloading in PHP:
@@ -31,6 +34,7 @@ __set(): triggered while initializing overloaded properties.
 __get(): triggered while using overloaded properties with PHP print statements.
 __isset(): This magic method is invoked when we check overloaded properties with isset() function
 __unset(): Similarly, this function will be invoked on using PHP unset() for overloaded properties.
+
 Example:
 
 filter_none
@@ -38,82 +42,95 @@ edit
 play_arrow
 
 brightness_4
-<?php 
-  
+<?php
+
 //  
-class GFG1 { 
-      
+class GFG1
+{
+
     // Location of overloading data 
-    private $data = array(); 
-  
+    private $data = array();
+
     // Overloading not used here 
-    public $declared = 1; 
-  
+    public $declared = 1;
+
     // Overloading used when accessed 
     // outside the class 
-    private $hidden = 2; 
-      
+    private $hidden = 2;
+
     // Function definition 
-    public function __set($name, $value) { 
-        echo "Setting '$name' to '$value'\n"; 
-        $this->data[$name] = $value; 
-    } 
-      
+    public function __set($name, $value)
+    {
+        echo "Setting '$name' to '$value'\n";
+        $this->data[$name] = $value;
+    }
+
     // Function definition 
-    public function __get($name) { 
-        echo "Getting '$name: "; 
-        if (array_key_exists($name, $this->data)) { 
-            return $this->data[$name]; 
-        } 
-  
-        $trace = debug_backtrace(); 
-          
-        return null; 
-    } 
-  
+    public function __get($name)
+    {
+        echo "Getting '$name: ";
+        if (array_key_exists($name, $this->data)) {
+            return $this->data[$name];
+        }
+
+        $trace = debug_backtrace();
+
+        return null;
+    }
+
     // Function definition 
-    public function __isset($name) { 
-        echo "Is '$name' set?\n"; 
-        return isset($this->data[$name]); 
-    } 
-  
+    public function __isset($name)
+    {
+        echo "Is '$name' set?\n";
+        return isset($this->data[$name]);
+    }
+
     // Definition of __unset function 
-    public function __unset($name) { 
-        echo "Unsetting '$name'\n"; 
-        unset($this->data[$name]); 
-    } 
-  
+    public function __unset($name)
+    {
+        echo "Unsetting '$name'\n";
+        unset($this->data[$name]);
+    }
+
     // getHidden functino definition 
-    public function getHidden() { 
-        return $this->hidden; 
-    } 
-} 
-  
+    public function getHidden()
+    {
+        return $this->hidden;
+    }
+}
+
 // Create an object 
-$obj = new GFG1; 
+$obj = new GFG1;
 echo '<br>94';
 // Set value 1 to the object variable 
-$obj->a = 1; 
-echo $obj->a . "\n"; echo '<br>';
-  
+$obj->a = 1;
+echo $obj->a . "\n";
+echo '<br>';
+
 // Use isset function to check 
 // 'a' is set or not 
-var_dump(isset($obj->a)); echo '<br>';
-  
+var_dump(isset($obj->a));
+echo '<br>';
+
 // Unset 'a' 
-unset($obj->a); echo '<br>';
-  
-var_dump(isset($obj->a)); echo '<br>';
-  
-echo $obj->declared . "\n\n"; echo '<br>';
-  
-echo "Private property are visible inside the class "; echo '<br>';
-echo $obj->getHidden() . "\n\n"; 
-  
-echo "Private property are not visible outside of class\n"; echo '<br>';
-echo $obj->hidden . "\n"; 
-  
-?> 
+unset($obj->a);
+echo '<br>';
+
+var_dump(isset($obj->a));
+echo '<br>';
+
+echo $obj->declared . "\n\n";
+echo '<br>';
+
+echo "Private property are visible inside the class ";
+echo '<br>';
+echo $obj->getHidden() . "\n\n";
+
+echo "Private property are not visible outside of class\n";
+echo '<br>';
+echo $obj->hidden . "\n";
+
+?>
 
 Private property are visible inside the class 2
 
@@ -131,32 +148,37 @@ edit
 play_arrow
 
 brightness_4
-<?php 
-class GFG { 
-      
-      
-    public function __call($name, $arguments) { 
-          
+<?php
+class GFG
+{
+
+
+    public function __call($name, $arguments)
+    {
+
         echo "Calling object method '$name' "
-            . implode(', ', $arguments). "\n"; echo '<br>';
-    } 
-  
-      
-    public static function __callStatic($name, $arguments) { 
-          
+            . implode(', ', $arguments) . "\n";
+        echo '<br>';
+    }
+
+
+    public static function __callStatic($name, $arguments)
+    {
+
         echo "Calling static method '$name' "
-            . implode(', ', $arguments). "\n"; echo '<br>';
-    } 
-} 
-  
+            . implode(', ', $arguments) . "\n";
+        echo '<br>';
+    }
+}
+
 // Create new object 
-$obj = new GFG; 
-  
-$obj->runTest('in object context'); 
-  
-GFG::runTest('in static context');  
-  
-?> 
+$obj = new GFG;
+
+$obj->runTest('in object context');
+
+GFG::runTest('in static context');
+
+?>
 Output:
 Calling object method 'runTest' in object context
 Calling static method 'runTest' in static context

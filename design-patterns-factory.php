@@ -8,97 +8,107 @@ This code uses a factory to create the Automobile object. There are two possible
 
 Using the factory pattern isn’t always necessary (or wise). The example code used here is so simple that a factory would simply be adding unneeded complexity. However if you are making a fairly large or complex project you may save yourself a lot of trouble down the road by using factories.
 
-   class Automobile {
-      private $bikeMake;
-      private $bikeModel;
-      
-      public function __construct($make, $model) {
-         $this->bikeMake = $make;
-         $this->bikeModel = $model;
-      }
-      
-      public function getMakeAndModel() {
-         return $this->bikeMake . ' ' . $this->bikeModel;
-      }
-   }
-   
-   class AutomobileFactory {
-      public static function create($make, $model) {
-         return new Automobile($make, $model);
-      }
-   }
-   
-   $pulsar = AutomobileFactory::create('ktm', 'Pulsar');
-   print_r($pulsar->getMakeAndModel());
-   
-   class Automobile {
-      private $bikeMake;
-      private $bikeModel;
-      
-      public function __construct($make, $model) {
-         $this->bikeMake = $make;
-         $this->bikeModel = $model;
-      }
-      
-      public function getMakeAndModel() {
-         return $this->bikeMake . ' ' . $this->bikeModel;
-      }
-   }
-   
-   class AutomobileFactory {
-      public static function create($make, $model) {
-         return new Automobile($make, $model);
-      }
-   }
-   t$pulsar = AutomobileFactory::create('ktm', 'pulsar');
-   
-   print_r($pulsar->getMakeAndModel()); 
+class Automobile {
+private $bikeMake;
+private $bikeModel;
+
+public function __construct($make, $model) {
+$this->bikeMake = $make;
+$this->bikeModel = $model;
+}
+
+public function getMakeAndModel() {
+return $this->bikeMake . ' ' . $this->bikeModel;
+}
+}
+
+class AutomobileFactory {
+public static function create($make, $model) {
+return new Automobile($make, $model);
+}
+}
+
+$pulsar = AutomobileFactory::create('ktm', 'Pulsar');
+print_r($pulsar->getMakeAndModel());
+
+class Automobile {
+private $bikeMake;
+private $bikeModel;
+
+public function __construct($make, $model) {
+$this->bikeMake = $make;
+$this->bikeModel = $model;
+}
+
+public function getMakeAndModel() {
+return $this->bikeMake . ' ' . $this->bikeModel;
+}
+}
+
+class AutomobileFactory {
+public static function create($make, $model) {
+return new Automobile($make, $model);
+}
+}
+t$pulsar = AutomobileFactory::create('ktm', 'pulsar');
+
+print_r($pulsar->getMakeAndModel());
 
 
 <?php
-   class Automobile {
-      private $bikeMake;
-      private $bikeModel;
-      
-      public function __construct($make, $model) {
-         $this->bikeMake = $make;
-         $this->bikeModel = $model;
-      }
-      
-      public function getMakeAndModel() {
-         return $this->bikeMake . ' ' . $this->bikeModel;
-      }
+class Automobile
+{
+   private $bikeMake;
+   private $bikeModel;
+
+   public function __construct($make, $model)
+   {
+      $this->bikeMake = $make;
+      $this->bikeModel = $model;
    }
-   
-   class AutomobileFactory {
-      public static function create($make, $model) {
-         return new Automobile($make, $model);
-      }
+
+   public function getMakeAndModel()
+   {
+      return $this->bikeMake . ' ' . $this->bikeModel;
    }
-   
-   $pulsar = AutomobileFactory::create('ktm', 'Pulsar');
-   print_r($pulsar->getMakeAndModel());
-   
-   class Automobile {
-      private $bikeMake;
-      private $bikeModel;
-      
-      public function __construct($make, $model) {
-         $this->bikeMake = $make;
-         $this->bikeModel = $model;
-      }
-      
-      public function getMakeAndModel() {
-         return $this->bikeMake . ' ' . $this->bikeModel;
-      }
+}
+
+class AutomobileFactory
+{
+   public static function create($make, $model)
+   {
+      return new Automobile($make, $model);
    }
-   
-   class AutomobileFactory {
-      public static function create($make, $model) {
-         return new Automobile($make, $model);
-      }
+}
+
+$pulsar = AutomobileFactory::create('ktm', 'Pulsar');
+print_r($pulsar->getMakeAndModel());
+
+class Automobile
+{
+   private $bikeMake;
+   private $bikeModel;
+
+   public function __construct($make, $model)
+   {
+      $this->bikeMake = $make;
+      $this->bikeModel = $model;
    }
-   $pulsar = AutomobileFactory::create('ktm', 'pulsar');
-   
-   print_r($pulsar->getMakeAndModel()); 
+
+   public function getMakeAndModel()
+   {
+      return $this->bikeMake . ' ' . $this->bikeModel;
+   }
+}
+
+class AutomobileFactory
+{
+   public static function create($make, $model)
+   {
+      return new Automobile($make, $model);
+   }
+}
+$pulsar = AutomobileFactory::create('ktm', 'pulsar');
+
+print_r($pulsar->getMakeAndModel());
 ?>

@@ -1,57 +1,58 @@
-Strategy pattern makes a family algorithm and encapsulates each algorithm. Here each algorithm should be inter-changeable within the family.
+Strategy pattern makes a family algorithm and encapsulates each algorithm.
+Here each algorithm should be inter-changeable within the family.
 
 
-   $elements = array(
-      array(
-         'id' => 2,
-         'date' => '2011-01-01',
-      ),
-      array(
-         'id' => 1,
-         'date' => '2011-02-01'
-      )
-   );
-   
-   $collection = new ObjectCollection($elements);
-   
-   $collection->setComparator(new IdComparator());
-   $collection->sort();
-   
-   echo "Sorted by ID:\n";
-   print_r($collection->elements);
-   
-   $collection->setComparator(new DateComparator());
-   $collection->sort();
-   
-   echo "Sorted by date:\n";
-   print_r($collection->elements);
+$elements = array(
+array(
+'id' => 2,
+'date' => '2011-01-01',
+),
+array(
+'id' => 1,
+'date' => '2011-02-01'
+)
+);
+
+$collection = new ObjectCollection($elements);
+
+$collection->setComparator(new IdComparator());
+$collection->sort();
+
+echo "Sorted by ID:\n";
+print_r($collection->elements);
+
+$collection->setComparator(new DateComparator());
+$collection->sort();
+
+echo "Sorted by date:\n";
+print_r($collection->elements);
 
 
 <?php
-   $elements = array(
-      array(
-         'id' => 2,
-         'date' => '2011-01-01',
-      ),
-      array(
-         'id' => 1,
-         'date' => '2011-02-01'
-      )
-   );
-   
-   $collection = new ObjectCollection($elements);
-   
-   $collection->setComparator(new IdComparator());
-   $collection->sort();
-   
-   echo "Sorted by ID:\n";
-   print_r($collection->elements);
-   
-   $collection->setComparator(new DateComparator());
-   $collection->sort();
-   
-   echo "Sorted by date:\n";
-   print_r($collection->elements);
+$elements = array(
+    array(
+        'id' => 2,
+        'date' => '2011-01-01',
+    ),
+    array(
+        'id' => 1,
+        'date' => '2011-02-01'
+    )
+);
+
+$collection = new ObjectCollection($elements);
+
+$collection->setComparator(new IdComparator());
+$collection->sort();
+
+echo "Sorted by ID:\n";
+print_r($collection->elements);
+
+$collection->setComparator(new DateComparator());
+$collection->sort();
+
+echo "Sorted by date:\n";
+print_r($collection->elements);
 ?>
 
 With the strategy pattern you encapsulate specific families of algorithms allowing the client class responsible for instantiating a particular algorithm to have no knowledge of the actual implementation. There are several variations on the strategy pattern, the simplest of which is outlined below:
@@ -62,31 +63,31 @@ This first code snippet outlines a family of algorithms; you may want a serializ
 
 interface OutputInterface
 {
-    public function load();
+public function load();
 }
 
 class SerializedArrayOutput implements OutputInterface
 {
-    public function load()
-    {
-        return serialize($arrayOfData);
-    }
+public function load()
+{
+return serialize($arrayOfData);
+}
 }
 
 class JsonStringOutput implements OutputInterface
 {
-    public function load()
-    {
-        return json_encode($arrayOfData);
-    }
+public function load()
+{
+return json_encode($arrayOfData);
+}
 }
 
 class ArrayOutput implements OutputInterface
 {
-    public function load()
-    {
-        return $arrayOfData;
-    }
+public function load()
+{
+return $arrayOfData;
+}
 }
 By encapsulating the above algorithms you are making it nice and clear in your code that other developers can easily add new output types without affecting the client code.
 
@@ -96,17 +97,17 @@ The next snippet of code outlines how a calling client class might use one of th
 
 class SomeClient
 {
-    private $output;
+private $output;
 
-    public function setOutput(OutputInterface $outputType)
-    {
-        $this->output = $outputType;
-    }
+public function setOutput(OutputInterface $outputType)
+{
+$this->output = $outputType;
+}
 
-    public function loadOutput()
-    {
-        return $this->output->load();
-    }
+public function loadOutput()
+{
+return $this->output->load();
+}
 }
 The calling client class above has a private property which must be set at runtime and be of type ‘OutputInterface’ once this property is set a call to loadOutput() will call the load() method in the concrete class of the output type that has been set.
 
